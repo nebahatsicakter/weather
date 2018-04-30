@@ -1,6 +1,6 @@
 {
     "name": "kouosl/portal-sample",
-    "description": "Sample module for KOUOSL",
+    "description": "Sample module for KOUOSL PORTAL",
     "type": "yii2-extension",
     "keywords": ["yii2", "yii 2", "samples", "sample", "module", "modules"],
     "license": "BSD-3-Clause",
