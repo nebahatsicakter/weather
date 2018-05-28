@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\sample;
+namespace kouosl\weather;
 use Yii;
 use yii\filters\auth\CompositeAuth;
 use yii\filters\auth\HttpBasicAuth;
@@ -57,16 +57,16 @@ class Module extends \kouosl\base\Module
         Yii::$app->i18n->translations['site/*'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
-            'basePath' => '@kouosl/sample/messages',
+            'basePath' => '@kouosl/weather/messages',
             'fileMap' => [
-                'sample/sample' => 'sample.php',
+                'weather/weather' => 'weather.php',
             ],
         ];
     }
 
     public static function t($category, $message, $params = [], $language = null)
     {
-        return Yii::t('sample/' . $category, $message, $params, $language);
+        return Yii::t('weather/' . $category, $message, $params, $language);
     }
 
     public static function initRules(){
@@ -75,7 +75,7 @@ class Module extends \kouosl\base\Module
             [
                 'class' => 'yii\rest\UrlRule',
                 'controller' => [
-                    'sample/samples',
+                    'weather/weathers',
                 ],
                 'tokens' => [
                     '{id}' => '<id:\\w+>'

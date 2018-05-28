@@ -1,15 +1,25 @@
+
 <?php
 /* @var $this yii\web\View */
 $this->title = 'WYP Sample Application';
+$conn=@mysql_connect('localhost','root','');
+@mysql_select_db("kouosl");
+
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Kou Osl Yii2 App - Frontend</h1>
+<script language=JavaScript>function havadurumu(il){ var city = findcity.value; weatherToday.src = "http://www.mgm.gov.tr/sunum/tahmin-show-1.aspx?m=" + city + "&basla=1&bitir=5&rC=FFF&rZ=FFF";}</SCRIPT>
 
-        <p class="lead">Örnek uygulamayı başarılı bir şekilde çalıştırdınız.</p>
+<form>
+<select  id="findcity" onChange='havadurumu(this.cityName)'>
+    <?php
+    $cek=mysql_query("select * from city");
+    while ($yaz = mysql_fetch_array($cek)) {
+        echo "<option value'".$yaz["cityID"]."'>".$yaz["cityName"]."</option>";
 
-        <p><a class="btn btn-lg btn-success" href="#">Modüller ve konfürgasyon!</a></p>
-    </div>
+    }
+    ?>
+    </select>
+    </form>
+<img id="weatherToday" src="http://www.mgm.gov.tr/sunum/tahmin-show-1.aspx?m=GIRESUN&basla=1&bitir=5&rC=ffffff&rZ=FFF" style="width:260px; height:81px;" alt="GIRESUN" />
 
-</div>
+</script>

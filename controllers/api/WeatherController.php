@@ -1,13 +1,13 @@
 <?php
 
-namespace kouosl\sample\controllers\api;
+namespace kouosl\weather\controllers\api;
 
-use kouosl\sample\models\Samples;
+use kouosl\weather\models\Weathers;
 use Yii;
 
-class SamplesController extends DefaultController {
+class WeathersController extends DefaultController {
 	
-	public $modelClass = 'kouosl\sample\models\Samples';
+	public $modelClass = 'kouosl\weather\models\Weathers';
 	
 	public function actions() {
 		$actions = parent::actions ();
@@ -17,7 +17,7 @@ class SamplesController extends DefaultController {
 	
 	public function actionView($id){
 
-		$model = Samples::findOne($id);
+		$model = Weathers::findOne($id);
 		
 		if(!$model)
 			return ['status' => '404','message' => 'Not Found'];
@@ -26,14 +26,14 @@ class SamplesController extends DefaultController {
 	}
 	
 	public function actionIndex(){
-		return Samples::find()->all();
+		return Weathers::find()->all();
 	}
 	
 	public function actionCreate(){
 
 		$postParams = yii::$app->request->post();
 		
-		$model = new Samples();
+		$model = new Weathers();
 	
 		
 		if($model->load($postParams,'') && $model->validate()){
@@ -51,7 +51,7 @@ class SamplesController extends DefaultController {
 
 		$postParams = yii::$app->request->post();
 		
-		$model = Samples::findOne($id);
+		$model = Weathers::findOne($id);
 
 		if($model = $this->LoadModel($model, $postParams)){
 				if($model->save())
@@ -64,7 +64,7 @@ class SamplesController extends DefaultController {
 	
 	public function actionDelete($id){
 		
-		if(Samples::findOne($id)->delete())
+		if(Weathers::findOne($id)->delete())
 			return ['status' => 1];
 		else
 			return ['stauts' => 100];

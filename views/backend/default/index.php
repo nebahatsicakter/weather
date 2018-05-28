@@ -1,6 +1,6 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = 'WYP Sample Application';
+$this->title = 'WYP Weather Application';
 ?>
 <div class="site-index">
 
